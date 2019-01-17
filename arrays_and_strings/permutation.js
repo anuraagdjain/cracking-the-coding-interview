@@ -16,6 +16,7 @@ function extractPermutations(str1, str2) {
 
     for (let i = 0; i < str2.length; i++) {
         const subStr = str2.substr(i, str1.length);
+        if(subStr.length < str1.length) break;
         if (isCharPresent(subStr)) permutations.push(subStr);
     }
 
@@ -23,6 +24,7 @@ function extractPermutations(str1, str2) {
 }
 
 function isPermutation(str1, str2) {
+    if(str1.length != str2.length) return false;
     return str1
         .split("")
         .sort()
@@ -33,5 +35,6 @@ function isPermutation(str1, str2) {
             .join("")
 }
 
-console.log(extractPermutations("abc", "aabcdbscc"));
-console.log(isPermutation('abc', 'cba'));
+console.log(extractPermutations("abc", "aabcdbsccba")); // abc,cba
+console.log(isPermutation('abc', 'cba')); // true
+console.log(isPermutation('abcdef', 'zcba')); // false
