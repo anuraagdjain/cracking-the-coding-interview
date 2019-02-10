@@ -13,6 +13,11 @@ function stringCompression(str) {
       idx++;
     }
     result += `${currChar}${ctr}`;
+    /**
+     * if you want to eliminate `1` from result for ex:
+     * aabcccccaaa should give a2bc5a3, then
+     * result += `${currChar}${ctr > 1 ? ctr:''}`;
+     */
   }
   return result.length < str.length ? result : str;
 }
