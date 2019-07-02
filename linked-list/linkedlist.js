@@ -1,10 +1,5 @@
 'use strict';
-class Node {
-  constructor(data) {
-    this.data = data;
-    this.next = null;
-  }
-}
+const Node = require('./node');
 class LinkedList {
   constructor() {
     this.head = null;
