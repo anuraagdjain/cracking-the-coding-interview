@@ -31,10 +31,12 @@ def remove_start(n, limit):
 def intersection(a, b):
     a_res, b_res = tail_and_size(a), tail_and_size(b)
 
+    # if tail are different, no need to compare further
     if a_res[1] != b_res[1]:
         return IRes(False, None)
 
     list_diff = abs(a_res[0]-b_res[0])
+    # remove start nodes from longer list to ensure both are of same size
     if a_res[0] > b_res[0]:
         a = remove_start(a, list_diff)
     else:
