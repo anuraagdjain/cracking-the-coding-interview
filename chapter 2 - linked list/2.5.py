@@ -81,8 +81,14 @@ def forward_list(a, b):
         else:
             # adding 0's in b list
             b = front_padding(b, a_len - b_len)
-    forward_sum(a, b)
-    print_nodes(forward_sum(a, b).sum)
+    result = forward_sum(a, b)
+    if result.carry == 0:
+        print_nodes(forward_sum(a, b).sum)
+    else:
+        # add the carry in first pos
+        n = Node(result.carry)
+        n.next = result.sum
+        print_nodes(n)
 
 
 if __name__ == "__main__":
