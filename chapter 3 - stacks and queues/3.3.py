@@ -26,6 +26,15 @@ class Stack:
     def peek(self):
         return self.top.data if self.top else None
 
+    def remove_bottom(self):
+        top = self.top
+        prev = None
+        while top.next:
+            prev = top
+            top = top.next
+        prev.next = None
+        return top.data
+
     def print_stack(self):
         top = self.top
         while top:
@@ -56,6 +65,27 @@ class PlateStack:
             self.current_stack_index -= 1
         return item
 
+    def pop_at(self, stack_index):
+        if stack_index > self.current_stack_index:
+            return "Invalid Stack. Starting from 0"
+        # pop specific stack's top value
+        return self.left_shift(stack_index, True)
+
+    def left_shift(self, stack_index, remove_top):
+        stack = self.stacks[stack_index]
+        item = None
+        if remove_top:
+            item = stack.pop()
+        else:
+            item = stack.remove_bottom()
+
+        if stack.length == 0:
+            del self.stacks[stack_index]
+        elif len(self.stacks) > stack_index + 1:
+            n = self.left_shift(stack_index+1, False)
+            stack.add(n)
+        return item
+
     def is_stack_full(self):
         # check if last stack is full
         return self.get_last_stack().length == self.stack_threshold
@@ -79,9 +109,11 @@ if __name__ == "__main__":
 
     p.print_stacks()
 
-    print("Pop: ", p.pop())
+    # print("Pop: ", p.pop())
 
     p.add(5)
     p.add(15)
+
+    print("AT:", p.pop_at(1))
 
     p.print_stacks()
