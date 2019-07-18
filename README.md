@@ -27,3 +27,14 @@
 - Palindrome - [Python](/chapter%202%20-%20linked%20list/2.6.py)
 - Intersection - [Python](/chapter%202%20-%20linked%20list/2.7.py)
 - Loop Detection - [Python](/chapter%202%20-%20linked%20list/2.8.py)
+
+### Chapter 3 - Stacks and Queues
+
+---
+
+- Three in One - Use single array to implement 3 stacks. [Python](/chapter%203%20-%20stacks%20and%20queues/3.1.py)
+- Stack Min - Design a stack which has _min_ function and return minimum element and operates in O(n). [Python](/chapter%203%20-%20stacks%20and%20queues/3.2.py)
+- Stack of Plates - [Python](/chapter%203%20-%20stacks%20and%20queues/3.3.py)
+- Queue via Stacks - [Python](/chapter%203%20-%20stacks%20and%20queues/3.4.py)
+- Sort Stack - sort a stack such that smallest items are on top. [Python](/chapter%203%20-%20stacks%20and%20queues/3.5.py)
+- Animal Shelter - [Python](/chapter%203%20-%20stacks%20and%20queues/3.6.py)
